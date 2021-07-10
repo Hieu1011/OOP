@@ -40,8 +40,8 @@ bool Culi::TuongKhac(Culi &b)
 			(b.getHe() == 3 && this->He == 4) || (b.getHe() == 4 && this->He == 1) ||
 			(b.getHe() == 5 && this->He == 3))
 		{
-			stBA = this->getST() * 120 / 100;
-			stAB = b.getST() * 80 / 100;
+			stBA = b.getST() * 120 / 100;
+			stAB = this->getST() * 80 / 100;
 		}
 	}
 	if ((this->He == 1 && b.getHe() == 3) || (this->He == 2 && b.getHe() == 4) ||
@@ -308,7 +308,7 @@ void Quanli::STLN()
 			iMax = i;
 		}
 	}
-	cout << "==> Phan tu co muc sat thuong cao nhat: "<<iMax << endl;
+	cout << "==> Phan tu co muc sat thuong cao nhat: " << iMax + 1 << endl;
 	A[iMax]->Xuat();
 }
 void Quanli::TK()
@@ -317,7 +317,7 @@ void Quanli::TK()
 	int x,y;
 	cout << "Chon phan tu tuong tac: ";
 	cin >> x >> y;
-	bool flag = A[x]->TuongKhac(*A[y]);
+	bool flag = A[x - 1]->TuongKhac(*A[y - 1]);
 	if (flag)
 		cout << x << " co sat thuong cao hon " << y << endl;
 	else
